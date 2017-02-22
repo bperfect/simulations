@@ -182,7 +182,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 750000
+      NTIMES == 650000
           DT == 12.0d0
      NDTFAST == 40
 
@@ -256,7 +256,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Harmonic/biharmonic, horizontal viscosity coefficient for nonlinear model
 ! and adjoint-based algorithms: [Ngrids].
 
-       VISC2 == 50.0d0                           ! m2/s
+       VISC2 == 25.0d0                           ! m2/s
        VISC4 == 0.0d0                           ! m4/s
 
     ad_VISC2 == 0.0d0                           ! m2/s
@@ -279,7 +279,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 ! Vertical mixing coefficient for momentum for nonlinear model and
 ! basic state scale factor in adjoint-based algorithms: [Ngrids].
 
-     AKV_BAK == 1.0d-3 !-5                         ! m2/s
+     AKV_BAK == 1.0d-5 !-3                        ! m2/s
 
   ad_AKV_fac == 1.0d0                           ! nondimensional
 
@@ -385,7 +385,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
 ! Slipperiness parameter: 1.0 (free slip) or -1.0 (no slip)
 
-      GAMMA2 == 1.0d0
+      GAMMA2 == -1.0d0
 
 ! Logical switches (TRUE/FALSE) to activate horizontal momentum transport
 ! point Sources/Sinks (like river runoff transport) and mass point
