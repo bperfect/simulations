@@ -59,7 +59,7 @@ done
 
 export   ROMS_APPLICATION=FIEBERLING
 export        MY_ROOT_DIR=/sw/contrib/ROMS
-export     MY_PROJECT_DIR=/gscratch/stf/bperfect/sweep
+export     MY_PROJECT_DIR=/gscratch/stf/bperfect/simulations
 export       MY_ROMS_SRC=${MY_ROOT_DIR}/trunk
 export         COMPILERS=${MY_ROMS_SRC}/Compilers
 
