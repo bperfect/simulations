@@ -147,8 +147,13 @@ GridsInLayer =  1
    LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
    LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
    LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
-   LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
-   LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
+
+   LBC(isUvel) ==   Gra Gra Gra Gra      ! 3D U-momentum
+   LBC(isVvel) ==   Gra Gra Gra Gra      ! 3D V-momentum
+ 
+
+!   LBC(isUvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D U-momentum
+!   LBC(isVvel) ==   RadNud  RadNud  RadNud  RadNud      ! 3D V-momentum
    LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE
 
    LBC(isTvar) ==   Gra     Gra     Gra     Gra         ! temperature
@@ -182,7 +187,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 
 ! Time-Stepping parameters.
 
-      NTIMES == 750000
+      NTIMES == 600000
           DT == 12.0d0
      NDTFAST == 40
 
@@ -216,7 +221,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
         NHIS == 800
      NDEFHIS == 0
       NTSAVG == 1
-        NAVG == 30000
+        NAVG == 200
      NDEFAVG == 0
       NTSDIA == 1
         NDIA == 30000
@@ -256,7 +261,7 @@ ad_VolCons(north) ==  F                            ! northern boundary
 ! Harmonic/biharmonic, horizontal viscosity coefficient for nonlinear model
 ! and adjoint-based algorithms: [Ngrids].
 
-       VISC2 == 50.0d0                           ! m2/s
+       VISC2 == 3.0d0                           ! m2/s
        VISC4 == 0.0d0                           ! m4/s
 
     ad_VISC2 == 0.0d0                           ! m2/s
@@ -292,19 +297,19 @@ LtracerSponge == F F                            ! temperature, salinity, inert
 
 ! Generic length-scale turbulence closure parameters.
 
-       GLS_P == 3.0d0                           ! K-epsilon
-       GLS_M == 1.5d0
-       GLS_N == -1.0d0
-    GLS_Kmin == 7.6d-6
-    GLS_Pmin == 1.0d-12
+       GLS_P == 2.0d0                           ! K-epsilon
+       GLS_M == 1.0d0
+       GLS_N == -0.67d0
+    GLS_Kmin == 1.0d-8
+    GLS_Pmin == 1.0d-8
 
-    GLS_CMU0 == 0.5477d0
-      GLS_C1 == 1.44d0
-      GLS_C2 == 1.92d0
-     GLS_C3M == -0.4d0
+    GLS_CMU0 == 0.5544d0
+      GLS_C1 == 1.0d0
+      GLS_C2 == 1.22d0
+     GLS_C3M == 0.1d0
      GLS_C3P == 1.0d0
-    GLS_SIGK == 1.0d0
-    GLS_SIGP == 1.30d0
+    GLS_SIGK == 0.8d0
+    GLS_SIGP == 1.07d0
 
 ! Constants used in surface turbulent kinetic energy flux computation.
 
@@ -367,7 +372,7 @@ LtracerSponge == F F                            ! temperature, salinity, inert
        TNUDG == 2*1.0d0                    ! days
        ZNUDG == 1.0d0                      ! days
       M2NUDG == 1.0d0                      ! days
-      M3NUDG == 300.0d0                      ! days
+      M3NUDG == 100.0d0                      ! days
 
 ! Factor between passive (outflow) and active (inflow) open boundary
 ! conditions, [1:Ngrids]. If OBCFAC > 1, nudging on inflow is stronger
@@ -747,8 +752,8 @@ Dout(iTvdif) == T F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ocean_grd_startup2.nc
-     ININAME == ocean_ini_startup2.nc
+     GRDNAME == ../datasets/run4/ocean_grd_startup2.nc
+     ININAME == ../datasets/run4/ocean_ini_startup2.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -797,12 +802,12 @@ Dout(iTvdif) == T F     ! temp_vdiff, ...    vertical diffusion
 ! Output NetCDF file names, [1:Ngrids].
 
      GSTNAME == ocean_gst.nc
-     RSTNAME == ocean_rst_fine.nc
-     HISNAME == ocean_his_fine.nc
+     RSTNAME == ../datasets/run5/ocean_rst_fine.nc
+     HISNAME == ../datasets/run5/ocean_his_fine.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
-     AVGNAME == ocean_avg.nc
+     AVGNAME == ../datasets/run5/ocean_avg_fine.nc
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc

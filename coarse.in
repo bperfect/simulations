@@ -147,7 +147,7 @@ GridsInLayer =  1
    LBC(isFsur) ==   Cha     Cha     Cha     Cha         ! free-surface
    LBC(isUbar) ==   Fla     Fla     Fla     Fla         ! 2D U-momentum
    LBC(isVbar) ==   Fla     Fla     Fla     Fla         ! 2D V-momentum
-   LBC(isUvel) ==   RadNud  Gra     Gra     RadNud      ! 3D U-momentum
+   LBC(isUvel) ==   RadNud  RadNud  RadNud     RadNud      ! 3D U-momentum
    LBC(isVvel) ==   RadNud  Gra     Gra     RadNud      ! 3D V-momentum
    LBC(isMtke) ==   Gra     Gra     Gra     Gra         ! mixing TKE
 
@@ -747,8 +747,8 @@ Dout(iTvdif) == T F     ! temp_vdiff, ...    vertical diffusion
 
 ! Input NetCDF file names, [1:Ngrids].
 
-     GRDNAME == ocean_grd_startup.nc
-     ININAME == ocean_ini_startup.nc
+     GRDNAME == ../datasets/run6/ocean_grd_startup.nc
+     ININAME == ../datasets/run6/ocean_ini_startup.nc
      ITLNAME == ocean_itl.nc
      IRPNAME == ocean_irp.nc
      IADNAME == ocean_iad.nc
@@ -797,12 +797,12 @@ Dout(iTvdif) == T F     ! temp_vdiff, ...    vertical diffusion
 ! Output NetCDF file names, [1:Ngrids].
 
      GSTNAME == ocean_gst.nc
-     RSTNAME == ocean_rst_coarse.nc
-     HISNAME == ocean_his_coarse.nc
+     RSTNAME == ../datasets/run6/ocean_rst_coarse.nc
+     HISNAME == ../datasets/run6/ocean_his_coarse.nc
      TLMNAME == ocean_tlm.nc
      TLFNAME == ocean_tlf.nc
      ADJNAME == ocean_adj.nc
-     AVGNAME == ocean_avg.nc
+     AVGNAME == ../datasets/run6/ocean_avg_coarse.nc
      DIANAME == ocean_dia.nc
      STANAME == ocean_sta.nc
      FLTNAME == ocean_flt.nc
